@@ -1,0 +1,37 @@
+@import "../styles/variables"
+
+.start-details
+    display: flex
+    flex-direction: column
+
+.start-details__body
+    padding: 44px
+    display: flex
+    align-items: baseline
+    .body-column-l, .body-column-r
+        flex: 1
+
+    .body-column-r
+        p
+            margin-top: 0
+            color: $brownish-grey
+        .description-title
+            border-bottom: 2px $desert solid
+            color: $desert
+            margin-bottom: 22px
+
+        .description-body
+            margin-bottom: 66px
+
+            .description-details
+                display: flex
+                .details-l, .details-r
+                    width: 50%
+                    border-left: 4px $cool-grey dotted
+                    padding-left: 22px
+                    margin-bottom: 11px
+                    span
+                        font-size: 14px
+                        letter-spacing: 1px
+                    div
+                        margin-top: 5px
