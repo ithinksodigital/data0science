@@ -6,7 +6,7 @@ import './Navbar.sass';
 class Navbar extends React.Component {
   render() {
     return (
-        <div className="launch-details__navbar">
+        <div className="launch-details__navbar" onClick={this.props.onBackClick}>
           <div className="navbar__rev">
             <ArrowPointer/>
             <div className="back-sign"></div>
