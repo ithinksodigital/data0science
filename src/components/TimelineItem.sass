@@ -1,42 +1,47 @@
 @import "../styles/variables"
 
 .timeline-item:nth-child(odd)
-    text-align: right
+  text-align: right
 
 .timeline-item
-    &__description
-        cursor: pointer
-        &__rocket, &__launch-site
-            display: inline-block
-            color: $brownish-grey
-            margin: 0
-            text-overflow: ellipsis
-            white-space: nowrap
-            overflow: hidden
-        &__rocket
-            padding-right: 11px
-            margin-right: 11px
-            border-right: 1px $brownish-grey solid
-        &__launch-site
-            max-width: 30%
-    h5
-        margin: 0
-        word-spacing: 0
-        user-select: none
-    .arrow
-        width: 100%
-        position: relative
-    .arrow__line
-        width: 47%
-        background: $desert
-    .arrow__dot
-        display: inline
-        width: 5px
-        height: 5px
-        border-radius: 50%
-        background: $cool-grey
-        position: absolute
-        left: 50%
-        top: 50%
-        margin-left: -2px
+  display: flex
+  > div
+    flex: 1
+  h5
+    margin: 0
+    word-spacing: 0
+  &__description
+    h6
+      display: inline-block
+      color: $brownish-grey
+      margin-top: 0
+      margin-bottom: 0
+    &__text-with-border
+      padding-right: 11px
+      margin-right: 11px
+      border-right: 1px $brownish-grey solid
+    &__text-grey
+      color: $cool-grey
+  .arrow
+    position: relative
+    width: 100%
+    margin: 11px 0 11px 0
+  .arrow__line
+    background: $desert
+    width: 90%
+  .arrow__dot
+    background: $cool-grey
+    display: inline
+    width: 5px
+    height: 5px
+    border-radius: 50px
+    position: absolute
+    top: 50%
+    &_left
+      margin-left: -2px
+      left: 0
+    &_right
+      margin-right: -3px
+      right: 0
+
 

@@ -10,7 +10,7 @@ class FilterButtons extends React.Component {
   };
 
   state = {
-    selectedItem: 'ALL ROCKETS',
+    selectedItem: "FALCON 1",
   };
 
   onItemClick = (event) => {
@@ -22,17 +22,16 @@ class FilterButtons extends React.Component {
   };
 
   renderButtonWithName(name) {
-    const className = this.state.selectedItem === name ? 'menu-link menu-link_active' : 'menu-link';
+    const className = this.state.selectedItem === name ? 'menu-link menu-link_active': 'menu-link';
     return (
       <a onClick={this.onItemClick} className={className}>{name}</a>
     );
-  }
+  };
 
   render() {
     return (
       <div className="filter-buttons">
-        {this.renderButtonWithName('ALL ROCKETS')}
-        {this.props.options.map(name => this.renderButtonWithName(name))}
+        {this.props.options.map((name) => this.renderButtonWithName(name))}
       </div>
     );
   }

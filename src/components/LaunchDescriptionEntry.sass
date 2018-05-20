@@ -1,34 +1,29 @@
 @import "../styles/variables"
 
+.description__title
+  border-bottom: 2px $desert solid
+  color: $desert
+  margin-bottom: 22px
 
-.description-title
-    border-bottom: $desert solid
-    color: $desert
-    margin-bottom: 22px
+.description__body
+  margin-bottom: 66px
+  p
+    text-align: justify
+    margin-top: 0
+    color: $brownish-grey
 
-
-.description-body
-    margin-bottom: 60px
-
-.description-details
-    display: flex
-    flex-flow: row wrap
-    flex-direction: row
-    margin-bottom: 22px
-    p
-        margin-top: 0
-        color: $brownish-grey
-    .details-entry
-        flex-basis: 30%
-        border-left: 2px $cool-grey dotted
-        padding-left: 22px
-        margin-bottom: 3px
-        padding-top: 5px
-        margin-left: 11px
-        span
-            font-size: 14px
-            letter-spacing: 1px
-        div
-            margin-top: 5px
-        .detail-key
-            color: $cool-grey
+.description__details
+  display: flex
+  flex-direction: row
+  flex-flow: row wrap
+  margin-bottom: 22px
+  &__entry
+    flex-basis: 40%
+    border-left: 2px $cool-grey dotted
+    margin: 0 22px 2px 0
+    padding: 0 0 0 22px
+    font-size: 14px
+    font-weight: 600
+    letter-spacing: 1px
+    &__key
+      color: $cool-grey
