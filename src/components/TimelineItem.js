@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import parse from 'date-fns/parse';
 import { format } from 'date-fns';
-
 import './TimelineItem.sass';
 import Arrow from './Arrow';
 

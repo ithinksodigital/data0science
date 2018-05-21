@@ -25,7 +25,7 @@ class LaunchesList extends React.Component {
 
   async componentDidMount() {
     this.setState({
-      filteredLaunches: await this.fetchLaunchByRocketName(this.state.rocketNameFilter)
+      filteredLaunches: await this.fetchLaunchByName(this.state.rocketNameFilter)
     });
   }
 
@@ -33,7 +33,7 @@ class LaunchesList extends React.Component {
     return ["ALL ROCKETS", "FALCON 1", "FALCON 9", "FALCON 10", "FALCON HEAVY"];
   };
 
-  async fetchLaunchByRocketName(rocketName) {
+  async fetchLaunchByName(rocketName) {
     try {
       const rocketId = rocketName.split(" ").join("").toLowerCase();
       const URL = `https://api.spacexdata.com/v2/launches?rocket_id=${rocketId}`;
@@ -50,10 +50,10 @@ class LaunchesList extends React.Component {
 
   async getFilteredLaunches(rocketNameFilter){
     if(rocketNameFilter === "ALL ROCKETS") {
-      const filteredLaunches = await this.fetchLaunchByRocketName('');
+      const filteredLaunches = await this.fetchLaunchByName('');
       this.setState({ filteredLaunches: filteredLaunches });
     } else {
-      const filteredLaunches = await this.fetchLaunchByRocketName(rocketNameFilter);
+      const filteredLaunches = await this.fetchLaunchByName(rocketNameFilter);
       this.setState({ filteredLaunches: filteredLaunches });
     }
   };
