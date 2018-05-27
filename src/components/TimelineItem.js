@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import parse from 'date-fns/parse';
 import { format } from 'date-fns';
+
 import './TimelineItem.sass';
 import Arrow from './Arrow';
 
@@ -17,7 +18,7 @@ class TimelineItem extends React.Component {
     const direction = this.props.direction;
     const onClick = this.props.onLaunchClick;
     return (
-      <div onClick={onClick} style={{"cursor": "pointer"}}>
+      <div onClick={() => onClick(launch)} style={{"cursor": "pointer"}}>
         <h5>
           {format(parse(launch.launch_date_utc), "DD MMMM YYYY").toUpperCase()}
         </h5>

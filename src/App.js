@@ -1,69 +1,42 @@
 import { hot } from 'react-hot-loader';
 import * as React from 'react';
-import 'babel-polyfill';
+import PropTypes from 'prop-types';
+import { Provider } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
-import { launch } from './assets/lunch';
-import { launchSite } from './assets/launchSite';
-import { rocket } from './assets/rocket';
 import './styles/theme.sass';
 
 import LaunchDetails from './view/LaunchDetails';
 import LaunchesList from './view/LaunchesList';
 
 
-class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  constructor(props) {
-    super(props);
-    this.state = {
-      viewName: 'list'
-    };
-    this.handleLaunchClick = this.handleLaunchClick.bind(this);
-    this.handleBackClick = this.handleBackClick.bind(this);
-  }
+@inject('mainStore')
+@observer
+class App extends React.Component {
+  static propTypes = {
+    mainStore: PropTypes.object,
+  };
 
   get activeViewComponent() {
-    const { viewName } = this.state;
-    switch (viewName) {
+    switch (this.props.mainStore.activeViewName) {
       case 'list':
         return (
-          <LaunchesList onLaunchClick={this.handleLaunchClick}/>
+          <LaunchesList />
         );
       case 'details':
         return (
-          <LaunchDetails
-            launch={launch}
-            launchPad={launchSite}
-            rocket={rocket}
-            onBackClick={this.handleBackClick}
-          />
+          <LaunchDetails />
         );
       default: return null;
-    }
-  }
-
-  handleLaunchClick() {
-    this.setState({ viewName: 'details' });
-  }
-
-  handleBackClick() {
-    this.setState({ viewName: 'list' });
-  }
-
-  async fetchLaunchesList() {
-    try {
-      const URL = "https://api.spacexdata.com/v2/launches";
-      const fetchResult = fetch(URL);
-      const response = await fetchResult;
-      return await response.json();
-    } catch(e) {
-      throw Error(e);
     }
   }
 
   render() {
     return (
       <main>
-        {this.activeViewComponent}
+        <div>
+          {this.activeViewComponent}
+        </div>
       </main>
     );
   }

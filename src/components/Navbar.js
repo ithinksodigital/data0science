@@ -1,19 +1,25 @@
 import React from 'react';
-import ArrowPointer from '../assets/arrow_pointer.svg';
+import PropTypes from 'prop-types';
+
+import Arrow from './Arrow';
+
 import Logo from '../assets/space_x_logo_bw_centered.svg';
+
 import './Navbar.sass';
 
 class Navbar extends React.Component {
+  static propTypes = {
+    onBackClick: PropTypes.func.isRequired,
+  }
   render() {
     return (
-        <div className="launch-details__navbar" onClick={this.props.onBackClick}>
-          <div className="navbar__rev">
-            <ArrowPointer/>
-            <div className="back-sign"></div>
+        <div className="navbar">
+          <div className="navbar__backlink" onClick={this.props.onBackClick}>
+            <Arrow direction="left"/>
             <h5>GO BACK</h5>
           </div>
           <div className="navbar__logo">
-            <Logo width="256px"/>
+            <Logo width="256px"/>  
           </div>
           <div></div>
         </div>

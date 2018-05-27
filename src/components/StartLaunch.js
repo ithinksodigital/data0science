@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import isPast from 'date-fns/is_past';
 import parse from 'date-fns/parse';
 import { format } from 'date-fns';
+
 import Countdown from 'react-countdown-now';
+
 import './StartLaunch.sass';
 
-class StartLaunch extends React.Component {
+class LaunchLabel extends React.Component {
     static propTypes = {
         launch: PropTypes.object.isRequired,
     }
@@ -17,12 +20,12 @@ class StartLaunch extends React.Component {
         let payloadId = this.props.launch['rocket']['second_stage']['payloads'][0]['payload_id'];
         let missionPatch = this.props.launch.links['mission_patch'];
         return (
-            <div className="start-label">
+            <div className="launch-label">
                 <div>
                     <h5>{launchDateString}</h5>
                 </div>
                 <div>
-                    <h1>{payloadId} {coreSerial} LAUNCH</h1>
+                    <h1>{payloadId} {coreSerial}</h1>
                     {!isPast(launchDate) &&
                         <Countdown
                         date={launchDate}
@@ -45,4 +48,4 @@ class StartLaunch extends React.Component {
     }
 }
 
-export default StartLaunch;
+export default LaunchLabel;

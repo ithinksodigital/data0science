@@ -1,24 +1,19 @@
 @import "../styles/variables"
 
-.launch-details__navbar
-    background: $dark-grey
-    padding: 0 44px
-    display: flex
-    align-items: center
-    justify-content: center
-    div
-        flex: 1
-    .navbar__logo
-        text-align: center
-    .navbar__rev
-        color: $desert
-        .back-sign, svg
-            vertical-align: middle
-        .back-sign
-            background: $desert
-            width: 33px
-            height: 2px
-        h5
-            margin-left: 22px
-    .navbar__rev *
-        display: inline-block
+.navbar
+  display: flex
+  justify-content: center
+  align-items: center
+  div
+    flex: 1
+  .navbar__logo
+    text-align: center
+  .navbar__backlink
+    color: $desert
+    cursor: pointer
+    .arrow__line
+      background: $desert
+    h5
+      vertical-align: middle
+      margin-left: 22px
+      display: inline-block
